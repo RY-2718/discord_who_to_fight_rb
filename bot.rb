@@ -12,11 +12,11 @@ bot = Discordrb::Commands::CommandBot.new(
 
 bot.command :who_to_fight do |event, *args|
   if args.size == 0
-    event.send_message('usage: /who_to_fight userA userB userC ...')
+    event.send_message('usage: /who_to_fight 人数 userA userB userC ...')
     return
   end
-	users = args.shuffle.slice(0, 2)
-	event.send_message("Next squids and octarians are: #{users[0]}, #{users[1]}")
+  users = args.slice(1, args.size - 1).shuffle.slice(0, args[0].to_i())
+  event.send_message("Next squids and octarians are: #{users.join(', ')}")
 end
 
 bot.run
