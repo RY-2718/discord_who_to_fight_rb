@@ -5,9 +5,9 @@ require 'dotenv'
 Dotenv.load
 
 bot = Discordrb::Commands::CommandBot.new(
-	token: ENV['TOKEN'],
+  token: ENV['TOKEN'],
   client_id: ENV['CLIENT_ID'].to_i(),
-	prefix:'/',
+  prefix:'/',
 )
 
 bot.command :who_to_fight do |event, *args|
